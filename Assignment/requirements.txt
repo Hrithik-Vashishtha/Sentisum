@@ -1,0 +1,4 @@
+elasticsearch==8.10.1
+# python==3.9.13
+flask==3.0.0
+# pandas
