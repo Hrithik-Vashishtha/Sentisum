@@ -3,13 +3,16 @@ import pandas as pd
 import re
 from geopy.geocoders import Nominatim
 
-from elasticsearch import Elasticsearch
-
+# Initialize Elasticsearch connection
 es = Elasticsearch("http://localhost:9200", http_auth=("elastic", "OsboUfs5GKauVaoV5=dQ"))
-df = pd.read_csv('salary_survey-1.csv')
+
+# Read CSV data into DataFrame
+df = pd.read_csv('Assignment\salary_survey-1.csv')
+
+# Drop rows with missing values
 df = df.dropna()
 
-
+# Function to clean and convert salary to float
 def clean_salary(salary):
     # Remove non-numeric characters and commas
     salary = re.sub(r'[^\d]', '', str(salary))
@@ -17,15 +20,17 @@ def clean_salary(salary):
         return float(salary)
     except ValueError:
         return None
+
+# Apply clean_salary function to the salary column
 df['What is your annual salary?'] = df['What is your annual salary?'].apply(clean_salary)
 
+# Drop rows with missing values after salary cleaning
 df = df.dropna()
 
-
-
-# Initialize the geolocator
+# Initialize geolocator
 geolocator = Nominatim(user_agent="geoapiExercises")
 
+# Function to get city from location
 def get_city_from_location(location):
     try:
         location_info = geolocator.geocode(location, exactly_one=True, addressdetails=True)
@@ -35,10 +40,13 @@ def get_city_from_location(location):
         print(f"Error processing location '{location}': {e}")
         return None
 
-# Apply the function to the "Location" column and update it
+# Apply get_city_from_location function to the "Location" column
 df['Where are you located? (City/state/country)'] = df['Where are you located? (City/state/country)'].apply(get_city_from_location)
+
+# Convert DataFrame to dictionary records
 df2 = df.to_dict('records')
 
+# Generator function for Elasticsearch bulk indexing
 def generator(df2):
     for c, line in enumerate(df2):
         yield {
@@ -57,7 +65,7 @@ def generator(df2):
             }
         }
 
-mycustom = generator(df2)
+# Elasticsearch index settings and mappings
 Settings = {
     'settings': {
         "number_of_shards": 1,
@@ -77,9 +85,12 @@ Settings = {
         }
     }
 }
+
+# Create Elasticsearch index
 IndexName = ''
 my = es.indices.create(index='compensation_data', ignore=[400,404],body=Settings)
 
+# Bulk index data into Elasticsearch
 res = es.indices.get_alias(index="*")
 try:
     res = helpers.bulk(es, generator(df2))
@@ -88,4 +99,6 @@ try:
 except Exception as e:
     # print(e)
     pass
+
+# Print success message
 print("Success")

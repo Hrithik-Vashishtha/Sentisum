@@ -1,0 +1,114 @@
+{
+  "took": 55,
+  "timed_out": false,
+  "_shards": {
+    "total": 1,
+    "successful": 1,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 96,
+      "relation": "eq"
+    },
+    "max_score": null,
+    "hits": [
+      {
+        "_index": "myelkfirst",
+        "_id": "kuq2eYsBtHlZSGTqU0SU",
+        "_score": null,
+        "_source": {
+          "Timestamp": "7/23/2019 16:09:26",
+          "Industry": "",
+          "JobTitle": "Software Engineer",
+          "Salary": 220000000,
+          "Currency": "Other",
+          "Location": null,
+          "YearsOfExperience": "2 - 4 years",
+          "AdditionalContext": "Full stack",
+          "Other": ""
+        },
+        "sort": [
+          220000000
+        ]
+      },
+      {
+        "_index": "myelkfirst",
+        "_id": "guq2eYsBtHlZSGTqU0ST",
+        "_score": null,
+        "_source": {
+          "Timestamp": "5/3/2019 12:08:24",
+          "Industry": "",
+          "JobTitle": "Associate Attorney",
+          "Salary": 208000000,
+          "Currency": "Other",
+          "Location": "서울",
+          "YearsOfExperience": "5-7 years",
+          "AdditionalContext": "Midlevel associate attorney at a Biglaw firm",
+          "Other": ""
+        },
+        "sort": [
+          208000000
+        ]
+      },
+      {
+        "_index": "myelkfirst",
+        "_id": "Req2eYsBtHlZSGTqU0ST",
+        "_score": null,
+        "_source": {
+          "Timestamp": "4/25/2019 0:29:44",
+          "Industry": "",
+          "JobTitle": "prOfEssSioNal ApEx ELegenaDS PLaYEr",
+          "Salary": 100000000,
+          "Currency": "ZAR",
+          "Location": null,
+          "YearsOfExperience": "41 years or more",
+          "AdditionalContext": "yOTe",
+          "Other": ""
+        },
+        "sort": [
+          100000000
+        ]
+      },
+      {
+        "_index": "myelkfirst",
+        "_id": "Veq2eYsBtHlZSGTqU0ST",
+        "_score": null,
+        "_source": {
+          "Timestamp": "4/25/2019 0:03:06",
+          "Industry": "",
+          "JobTitle": "Director of Academic Operations",
+          "Salary": 90000000,
+          "Currency": "Other",
+          "Location": "Daerah Khusus Ibukota Jakarta",
+          "YearsOfExperience": "11 - 20 years",
+          "AdditionalContext": "Sr. Management, National level",
+          "Other": ""
+        },
+        "sort": [
+          90000000
+        ]
+      },
+      {
+        "_index": "myelkfirst",
+        "_id": "luq2eYsBtHlZSGTqU0SU",
+        "_score": null,
+        "_source": {
+          "Timestamp": "11/25/2019 20:29:33",
+          "Industry": "",
+          "JobTitle": "Curriculum Manager",
+          "Salary": 55200000,
+          "Currency": "Other",
+          "Location": null,
+          "YearsOfExperience": "5-7 years",
+          "AdditionalContext": "Manage and design English programs for primary school",
+          "Other": ""
+        },
+        "sort": [
+          55200000
+        ]
+      }
+    ]
+  }
+}
