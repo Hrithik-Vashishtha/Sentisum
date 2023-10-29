@@ -1,4 +1,4 @@
-elasticsearch==8.10.1
-# python==3.9.13
+elasticsearch==7.15.1
+pandas==2.1.2
+geopy==2.4.0
 flask==3.0.0
-# pandas
