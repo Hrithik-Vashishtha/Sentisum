@@ -7,7 +7,7 @@ from geopy.geocoders import Nominatim
 es = Elasticsearch("http://localhost:9200", http_auth=("elastic", "OsboUfs5GKauVaoV5=dQ"))
 
 # Read CSV data into DataFrame
-df = pd.read_csv('Assignment\salary_survey-1.csv')
+df = pd.read_csv('salary_survey-1.csv')
 
 # Drop rows with missing values
 df = df.dropna()
